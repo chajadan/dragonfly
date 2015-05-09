@@ -291,7 +291,7 @@ class GrammarWrapper(object):
             for result in r.decode(s):
                 if s.finished():
                     root = s.build_parse_tree()
-                    r.process_recognition(root)
+                    r.process_recognition(root, results)
                     return
 
         NatlinkEngine._log.warning("Grammar %s: failed to decode"

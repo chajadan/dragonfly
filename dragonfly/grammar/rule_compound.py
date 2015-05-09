@@ -123,7 +123,7 @@ class CompoundRule(Rule):
 
     #-----------------------------------------------------------------------
 
-    def process_recognition(self, node):
+    def process_recognition(self, node, results):
         """
             Process a recognition of this rule.
 
@@ -138,7 +138,9 @@ class CompoundRule(Rule):
                   "_grammar":  self.grammar,
                   "_rule":     self,
                   "_node":     node,
+                  "_results":  results,
                  }
+        #print "res", results
         extras.update(self._defaults)
         for name, element in self._extras.iteritems():
             extra_node = node.get_child_by_name(name, shallow=True)
